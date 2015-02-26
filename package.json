@@ -1,0 +1,23 @@
+
+/**
+ * Node Package Manager
+**/
+{
+  "name": "Nodejs Web",
+  "description": "Aplicação web Nodejs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+
+  },
+  "dependencies": {
+    "express": "^4.12.0",
+    "express-load": "^1.1.14",
+    "body-parser": "^1.12.0",
+    "method-override": "2.3.1",
+  },
+  
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
