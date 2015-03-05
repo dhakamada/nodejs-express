@@ -1,12 +1,14 @@
 default:
-
-    server:
-        port:3000
-
-    log: 
-        server: /var/log/server/server.log
-        level: 'debug'
-        colorize: true
+    servers:
+       app:
+          port:3000
+    log:
+       app:
+          filename: /var/log/servers/app
+          level: debug
+          colorize: true
+          datePattern: -yyyy-MM-dd
+          json: false
 
 local:
 
