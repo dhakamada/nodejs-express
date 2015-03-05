@@ -1,0 +1,14 @@
+default:
+
+    log: 
+        server: /var/log/server/server.log
+        level: 'debug'
+        colorize: true
+
+local:
+
+test: 
+
+development:
+
+production:
