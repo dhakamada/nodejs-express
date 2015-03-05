@@ -1,4 +1,5 @@
 var path              = require('path')
 var server 			  = require(path.resolve('servers', 'server.js'));
+var cfg 				= require('konfig')({ path: path.resolve('config')}).properties;
 
-server.start();
+server.start(cfg.server.port);

@@ -3,7 +3,6 @@ var path                = require('path');
 var load                = require('express-load');
 var bodyParser          = require('body-parser');
 var methodOverride      = require('method-override');
-var session             = require('express-session');
 var ect                 = require('ect');
 var ectRenderer         = ect({ watch: true, root: __dirname + '/views' });
 var logger              = require(path.resolve('lib','log'));
@@ -12,7 +11,7 @@ var dateUtils           = require("date-utils");
 var app;
 var server;
 
-exports.start = function(callback) {
+exports.start = function(port, callback) {
     app = express();
 
     // configuração da view do node
@@ -23,7 +22,6 @@ exports.start = function(callback) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(methodOverride());
-    app.use(session({secret : 'app', saveUninitialized: 'true', resave: 'true'}));
     var dir = path.resolve('public');
     app.use(express.static(dir));
     //variável utilizada para carregar as injeções de dependências
@@ -37,7 +35,7 @@ exports.start = function(callback) {
         .into(app, function(err, instance) {
             if(err) throw err;
                 //start server
-                server = app.listen(3000);
+                server = app.listen(port);
                    
                 if (callback) {
                     process.nextTick(function() {
