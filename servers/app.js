@@ -20,6 +20,7 @@ exports.start = function(port, callback) {
     // configurações do express
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
+    // actions de PUT E DELETE
     app.use(methodOverride());
     var dir = path.resolve('public');
     app.use(express.static(dir));
