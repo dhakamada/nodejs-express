@@ -13,7 +13,7 @@ var server;
 exports.start = function(port, callback) {
     app = express();
 
-    // configuração da view do node
+    // configuração da engine da view
     //http://ectjs.com/#benchmark
     app.engine('.ect', ectRenderer.render);
 
