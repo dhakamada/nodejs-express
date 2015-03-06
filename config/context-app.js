@@ -11,4 +11,15 @@ module.exports = {
 		}
 	},
 
+	mongo: {
+		create: {
+			module: path.resolve('lib', 'mongodb'),
+			args: [ 
+					{ $ref:'logger'},
+					cfg.mongo 
+			],
+			isConstructor: false
+		}
+	},
+
 }

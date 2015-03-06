@@ -31,7 +31,7 @@ describe('Logger Aplicação', function(){
 	describe('#criar arquivo de log', function(){
 
 		before(function(){
-			log.info('criar arquivo de log');
+			log.info('Sucesso ao criar arquivo de log');
 		})
 		
 		it('deve retornar true quando verificar se existe o arquivo de log', function (){

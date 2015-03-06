@@ -16,7 +16,8 @@
     "path"                : ">=0.4.9",
     "wire"                : "^0.10.10",
     "winston"             : ">=0.7.3",
-    "konfig"              : "^0.2.0"
+    "konfig"              : "^0.2.0",
+    "mongodb"             : "^1.4.33"
   },
   
   "devDependencies": {
