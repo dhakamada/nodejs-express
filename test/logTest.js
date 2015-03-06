@@ -4,7 +4,7 @@ var logger 			= require(path.resolve('lib', 'log'));
 var assert 			= require('chai').assert;
 var fs 				= require('fs');
 
-describe('Logger Aplicação', function(){
+describe('Logger App Tests ', function(){
 	var options, log;
 
 	before(function(){
@@ -12,7 +12,7 @@ describe('Logger Aplicação', function(){
 		log = logger(options);
 	});
 
-	describe('#arquivo de configuração do log', function(){
+	describe('#Configuração do log', function(){
 
 		it('deve retornar um object de log', function (){
 			assert.typeOf(log, 'object');
@@ -28,13 +28,13 @@ describe('Logger Aplicação', function(){
 		});
 	});
 
-	describe('#criar arquivo de log', function(){
+	describe('#Criação do arquivo de log', function(){
 
 		before(function(){
 			log.info('Sucesso ao criar arquivo de log');
 		})
 		
-		it('deve retornar true quando verificar se existe o arquivo de log', function (){
+		it('deve retornar true quando verificar o arquivo de log', function (){
 			fs.exists(options.filename + '-' + new Date().toFormat('YYYY-MM-DD'), function(exists){
 				assert.equal(exists, true);
 			});

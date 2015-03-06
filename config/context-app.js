@@ -16,7 +16,7 @@ module.exports = {
 			module: path.resolve('lib', 'mongodb'),
 			args: [ 
 					{ $ref:'logger'},
-					cfg.mongo 
+					cfg.mongo
 			],
 			isConstructor: false
 		}

@@ -4,7 +4,7 @@ var assert 			= require('chai').assert;
 var should			= require('chai').should();
 var contextApp 		= require(path.resolve('config', 'context-app'));
 
-describe('Injeção de Independência', function(){
+describe('Injeção de Independência Tests', function(){
 
 	describe('#App', function(){
 		
