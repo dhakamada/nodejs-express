@@ -6,7 +6,7 @@ module.exports = {
 	logger: {
 		create: {
 			module: path.resolve('lib', 'log'),
-			args: [ cfg.log.app ],
+			args: [ cfg.log.application ],
 			isConstructor: false
 		}
 	},

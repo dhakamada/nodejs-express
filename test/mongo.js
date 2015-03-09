@@ -9,7 +9,7 @@ describe('Mongo Tests', function(){
 		var log, err;
 
 		before(function(){
-			var options = cfg.log.app;
+			var options = cfg.log.application;
 			log = logger(options);
 		});
 

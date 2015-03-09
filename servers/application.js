@@ -15,24 +15,24 @@ exports.start = function(port, callback) {
 
     // configuração da engine da view
     //http://ectjs.com/#benchmark
-    app.engine('.ect', ectRenderer.render);
+    app.set('view engine', 'ect');
+    app.engine('ect', ectRenderer.render);
 
     // configurações do express
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
-    // actions de PUT E DELETE
     app.use(methodOverride());
     var dir = path.resolve('public');
     app.use(express.static(dir));
     //variável utilizada para carregar as injeções de dependências
-    app.set('context', 'context-app');
+    app.set('context', 'context-application');
 
     app.disable("x-powered-by");
 
     // irá carregar os pacotes para o express
-    load(path.resolve('lib','dependencyInjection'))
-        .then('servers/app/controllers')
-        .then('servers/app/routes')
+    load(path.resolve('lib','dependency-injection'))
+        .then('servers/application/controllers')
+        .then('servers/application/routers')
         .into(app, function(err, instance) {
             if(err) throw err;
                 //start server

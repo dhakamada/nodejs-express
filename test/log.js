@@ -8,7 +8,7 @@ describe('Logger App Tests ', function(){
 	var options, log;
 
 	before(function(){
-		options = cfg.log.app;
+		options = cfg.log.application;
 		log = logger(options);
 	});
 

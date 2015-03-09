@@ -1,10 +1,10 @@
 default:
     servers:
-       app:
-          port:3000
+       application:
+          port: 4000
     log:
-       app:
-          filename: /var/log/node/app
+       application:
+          filename: /var/log/node/application
           level: debug
           colorize: true
           datePattern: -yyyy-MM-dd
