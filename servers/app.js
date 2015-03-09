@@ -27,6 +27,8 @@ exports.start = function(port, callback) {
     //variável utilizada para carregar as injeções de dependências
     app.set('context', 'context-app');
 
+    app.disable("x-powered-by");
+
     // irá carregar os pacotes para o express
     load(path.resolve('lib','dependencyInjection'))
         .then('servers/app/controllers')
