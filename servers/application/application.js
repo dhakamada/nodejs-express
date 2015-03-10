@@ -3,8 +3,7 @@ var path                = require('path');
 var load                = require('express-load');
 var bodyParser          = require('body-parser');
 var methodOverride      = require('method-override');
-var ect                 = require('ect');
-var ectRenderer         = ect({ watch: true, root: __dirname + '/views' });
+var ECT                 = require('ect');
 var dateUtils           = require("date-utils");
 
 var app;
@@ -16,7 +15,7 @@ exports.start = function(port, callback) {
     // configuração da engine da view
     //http://ectjs.com/#benchmark
     app.set('view engine', 'ect');
-    app.engine('ect', ectRenderer.render);
+    app.engine('ect', ECT({ watch: true, root: path.resolve('views'), ext: '.ect' }).render);
 
     // configurações do express
     app.use(bodyParser.json());
