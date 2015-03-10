@@ -5,6 +5,8 @@ var bodyParser          = require('body-parser');
 var methodOverride      = require('method-override');
 var ECT                 = require('ect');
 var dateUtils           = require("date-utils");
+var session             = require('express-session');
+var cookieParser        = require('cookie-parser');
 
 var app;
 var server;
@@ -19,11 +21,17 @@ exports.start = function(port, callback) {
 
     // configurações do express
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.urlencoded({extended: false}));
     app.use(methodOverride());
     var dir = path.resolve('public');
     app.use(express.static(dir));
     //variável utilizada para carregar as injeções de dependências
+
+    // parse cookies
+    app.use(cookieParser());
+    //session
+    app.use(session({secret : 'sessionId', saveUninitialized: 'true', resave: 'true'}));
+
     app.set('context', 'context-application');
 
     app.disable("x-powered-by");
@@ -32,6 +40,7 @@ exports.start = function(port, callback) {
     load(path.resolve('lib','dependency-injection'))
         .then('servers/application/controllers')
         .then('servers/application/routers')
+        .then('middleware/error-handle')
         .into(app, function(err, instance) {
             if(err) throw err;
                 //start server
@@ -47,7 +56,7 @@ exports.start = function(port, callback) {
 
 exports.stop = function() {
     if (server) {
-        app.logger.info('Finalizando o servidor');
+        app.ctx.logger.info('Finalizando o servidor');
         server.close();
     }
 };

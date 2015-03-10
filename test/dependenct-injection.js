@@ -4,7 +4,7 @@ var assert 			= require('chai').assert;
 var should			= require('chai').should();
 var contextApp 		= require(path.resolve('config', 'context-application'));
 
-describe('Injeção de Independência Tests', function(){
+describe('Dependency Injection Test', function(){
 
 	describe('#App', function(){
 		
@@ -14,7 +14,7 @@ describe('Injeção de Independência Tests', function(){
 			require(path.resolve('lib', 'dependency-injection'))(app, function(err, result){
 
 				for(var prop in contextApp){
-					assert.isTrue(result.hasOwnProperty(prop));
+					assert.isTrue(result.ctx.hasOwnProperty(prop));
 				} 
 				done();
 			});
